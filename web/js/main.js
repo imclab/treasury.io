@@ -12,7 +12,7 @@ $(function() {
       /* NAV MENU BEHAVIOR */
       $('#navmenu').scrollSpy()
 
-      $('#navmenu ul li a').on('click', function(e) {
+      $('#navmenu ul a').click(function(e) {
           var that = this;
           scrollThere(that, e);
       });
