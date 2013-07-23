@@ -95,7 +95,8 @@ $(function() {
           var q = $('#download-csv').attr('data-query-link');
           var before_text = $that.html()
           setDownloadBtn('fetch', $that);
-          fetchJSON(q + ' LIMIT 10').done(function(results){
+          var url = api_endpoint + 'SELECT * FROM ('+ q.replace(api_endpoint, '').replace(/; *$/, '') + ') LIMIT 10'
+          fetchJSON(url).done(function(results){
             setDownloadBtn('reset', $download_browser_btn, before_text);
             trackQuery('browser', results.length)
             $('#results').html('<img src="web/images/ajax-loader.gif"/>')
